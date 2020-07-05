@@ -1,9 +1,10 @@
 const readline = require('readline');
 
 const common = require('./src/common');
+const admin = require('./src/admin');
 
 (function () {
-    
+
     const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout
@@ -19,6 +20,8 @@ const common = require('./src/common');
     console.log("6  - Forward DNS search")
     console.log("7  - HTTP Headers Check")
     console.log("8  - Zone Transfer")
+    console.log("9  - Admin Panel Search")
+
 
 
 
@@ -26,7 +29,7 @@ const common = require('./src/common');
         option = Number(value);
         rl.question(`Enter URL ?\t`, (value) => {
             url = value;
-            choices(option,url)
+            choices(option, url)
             rl.close();
         });
     });
@@ -35,23 +38,25 @@ const common = require('./src/common');
 }());
 
 
-function choices(option,url) {
+function choices(option, url) {
     switch (option) {
         case 1: common(url);
             break;
-        case 2: common('dnslookup',url);
+        case 2: common('dnslookup', url);
             break;
-        case 3: common('geoip',url);
+        case 3: common('geoip', url);
             break;
-        case 4: common('nmap',url);
+        case 4: common('nmap', url);
             break;
-        case 5: common('reverseiplookup',url);
+        case 5: common('reverseiplookup', url);
             break;
-        case 6: common('hostsearch',url);
+        case 6: common('hostsearch', url);
             break;
-        case 7: common('httpheaders',url);
+        case 7: common('httpheaders', url);
             break;
-        case 8: common('zonetransfer',url);
+        case 8: common('zonetransfer', url);
+            break;
+        case 9: admin(url);
             break;
         default: console.log("Incorrect option");
     }

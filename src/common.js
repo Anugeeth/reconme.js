@@ -1,6 +1,5 @@
 const https = require('https');
 
-
 const common = (path,url) => {
 
     https.get(`https://api.hackertarget.com/${path}/?q=${url}`, (res) => {
@@ -17,4 +16,4 @@ const common = (path,url) => {
         });
 };
 
-module.exports =  common ;
+module.exports = common ;
