@@ -3,7 +3,6 @@ As the information in the internet is increasing day by day, its really a need o
 
 - [x] Whois Lookup
 - [x] NameServer Lookup
-- [x] Robots.txt Scanner
 - [x] Admin Panel Scanner
 - [x] Find IP address location
 - [x] TCP Port Scan
@@ -15,7 +14,7 @@ As the information in the internet is increasing day by day, its really a need o
 ```
 To run this:
 
-node index.js
+node app.js
 
 ```
 
