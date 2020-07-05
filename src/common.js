@@ -1,8 +1,9 @@
 const https = require('https');
 
-const forwardns = (url) => {
 
-    https.get(`https://api.hackertarget.com/hostsearch/?q=${url}`, (res) => {
+const common = (path,url) => {
+
+    https.get(`https://api.hackertarget.com/${path}/?q=${url}`, (res) => {
         let data = '';
         res.on('data', (chunk) => {
             data += chunk;
@@ -16,7 +17,4 @@ const forwardns = (url) => {
         });
 };
 
-module.exports = {
-    forwardns
-}
-
+module.exports =  common ;

@@ -1,38 +1,9 @@
 const readline = require('readline');
 
-const { whois } = require('./src/whois');
-const { zonetransfer } = require('./src/zonetransfer');
-const { revip } = require('./src/revip');
-const { portscan } = require('./src/portscan');
-const { dnslookup } = require('./src/dnslookup');
-const { headers } = require('./src/headers');
-const { forwardns } = require('./src/forwardns');
-const { iplocation } = require('./src/iplocation');
-
-function choices(option,url) {
-    switch (option) {
-        case 1: whois(url);
-            break;
-        case 2: dnslookup(url);
-            break;
-        case 3: iplocation(url);
-            break;
-        case 4: portscan(url);
-            break;
-        case 5: revip(url);
-            break;
-        case 6: forwardns(url);
-            break;
-        case 7: headers(url);
-            break;
-        case 8: zonetransfer(url);
-            break;
-        default: console.log("Incorrect option");
-    }
-    return;
-}
+const common = require('./src/common');
 
 (function () {
+    
     const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout
@@ -64,3 +35,25 @@ function choices(option,url) {
 }());
 
 
+function choices(option,url) {
+    switch (option) {
+        case 1: common(url);
+            break;
+        case 2: common('dnslookup',url);
+            break;
+        case 3: common('geoip',url);
+            break;
+        case 4: common('nmap',url);
+            break;
+        case 5: common('reverseiplookup',url);
+            break;
+        case 6: common('hostsearch',url);
+            break;
+        case 7: common('httpheaders',url);
+            break;
+        case 8: common('zonetransfer',url);
+            break;
+        default: console.log("Incorrect option");
+    }
+    return;
+}
