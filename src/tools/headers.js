@@ -1,8 +1,8 @@
 const https = require('https');
 
-const whois = (url) => {
+const headers = (url) => {
 
-    https.get(`https://api.hackertarget.com/whois/?q=${url}`, (res) => {
+    https.get(`https://api.hackertarget.com/httpheaders/?q=${url}`, (res) => {
         let data = '';
         res.on('data', (chunk) => {
             data += chunk;
@@ -17,5 +17,6 @@ const whois = (url) => {
 };
 
 module.exports = {
-    whois
+    headers
 }
+
