@@ -16,7 +16,5 @@ const zonetransfer = (url) => {
         });
 };
 
-module.exports = {
-    zonetransfer
-}
+module.exports = { zonetransfer }
 
